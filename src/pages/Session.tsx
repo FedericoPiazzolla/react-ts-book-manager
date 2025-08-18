@@ -20,7 +20,7 @@ export default function SessionPage() {
     );
   }
 
-  function handleSatrtbooking() {
+  function handleStartBooking() {
     setIsBooking(true);
   }
 
@@ -30,7 +30,9 @@ export default function SessionPage() {
 
   return (
     <main id="session-page">
-      {isBooking && <BookSession />}
+      {isBooking && (
+        <BookSession session={loadedSession} onDone={handleStopBooking} />
+      )}
 
       <article>
         <header>
@@ -45,7 +47,7 @@ export default function SessionPage() {
               })}
             </time>
             <p>
-              <Button onClick={handleSatrtbooking}>Book Session</Button>
+              <Button onClick={handleStartBooking}>Book Session</Button>
             </p>
           </div>
         </header>

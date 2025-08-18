@@ -1,5 +1,5 @@
 import SessionList from "../components/Sessions/SessionList.tsx";
-import { SESSIONS } from "../dummy-sessions.ts"; // normally, we would probably load that from a server
+import { SESSIONS } from "../dummy-sessions.ts";
 
 export default function SessionsPage() {
   return (
