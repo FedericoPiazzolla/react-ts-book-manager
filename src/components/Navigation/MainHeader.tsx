@@ -1,9 +1,22 @@
 import { NavLink } from "react-router-dom";
 import Button from "../Ui/Button.tsx";
+import { useState } from "react";
+import UpcomingSessions from "../Sessions/UpcomingSessions.tsx";
 
 export default function MainHeader() {
+  const [upcomingSessionsVisible, setUpcomingSessionsVisible] = useState(false);
+
+  function showUpcomingSessions() {
+    setUpcomingSessionsVisible(true);
+  }
+  function hideUpcomingSessions() {
+    setUpcomingSessionsVisible(false);
+  }
   return (
     <>
+      {upcomingSessionsVisible && (
+        <UpcomingSessions onClose={hideUpcomingSessions} />
+      )}
       <header id="main-header">
         <h1>ReactMentoring</h1>
         <nav>
@@ -24,7 +37,7 @@ export default function MainHeader() {
               </NavLink>
             </li>
             <li>
-              <Button>Upcoming Sessions</Button>
+              <Button onClick={showUpcomingSessions}>Upcoming Sessions</Button>
             </li>
           </ul>
         </nav>
